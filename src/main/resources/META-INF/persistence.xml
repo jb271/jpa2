@@ -10,6 +10,9 @@
     <class>entity.Order</class>
     <class>entity.OrderLine</class>
     <class>entity.ItemType</class>
+    <class>entity.Book</class>
+    <class>entity.EBook</class>
+    <class>entity.PaperBook</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/jpa2?useUnicode=true&amp;useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
       <property name="javax.persistence.jdbc.user" value="root"/>

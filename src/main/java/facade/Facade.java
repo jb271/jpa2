@@ -1,9 +1,5 @@
 package facade;
 
-import entity.Customer;
-import entity.ItemType;
-import entity.Order;
-import entity.OrderLine;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -16,7 +12,7 @@ public class Facade {
 
     public Facade() {
     }
-
+/*
     public Customer createCustomer(String name, String email) {
         Customer customer = new Customer(name, email);
         em.getTransaction().begin();
@@ -71,5 +67,5 @@ public class Facade {
         }
         return sum;
     }
-    
+*/    
 }

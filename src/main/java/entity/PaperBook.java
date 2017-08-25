@@ -5,31 +5,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 @Entity
-public class OrderLine implements Serializable {
+public class PaperBook implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    private int quantity;
 
-    @ManyToOne
-    private ItemType itemType;
-    
-    @ManyToOne
-    private Order order;
-
-    private OrderLine() {
-    }
-    
-    public OrderLine(Order order, ItemType itemType, int quantity) {
-        this.order = order;
-        this.itemType = itemType;
-        this.quantity = quantity;
-    }
+    private double shippingWeight;
+    private int inStock;
     
     public Long getId() {
         return id;
@@ -39,20 +24,20 @@ public class OrderLine implements Serializable {
         this.id = id;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public double getShippingWeight() {
+        return shippingWeight;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setShippingWeight(double shippingWeight) {
+        this.shippingWeight = shippingWeight;
     }
 
-    public ItemType getItemType() {
-        return itemType;
+    public int getInStock() {
+        return inStock;
     }
 
-    public void setItemType(ItemType itemType) {
-        this.itemType = itemType;
+    public void setInStock(int inStock) {
+        this.inStock = inStock;
     }
 
     @Override
@@ -65,10 +50,10 @@ public class OrderLine implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof OrderLine)) {
+        if (!(object instanceof PaperBook)) {
             return false;
         }
-        OrderLine other = (OrderLine) object;
+        PaperBook other = (PaperBook) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -77,7 +62,7 @@ public class OrderLine implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.OrderLine[ id=" + id + " ]";
+        return "entity.PaperBook[ id=" + id + " ]";
     }
 
 }

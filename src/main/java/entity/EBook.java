@@ -7,25 +7,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class ItemType implements Serializable {
+public class EBook extends Book implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    private String downloadUrl;
+    private double sizeMB;
 
-    private String name;
-    private String description;
-    private double price;
-    
-    private ItemType() {
-    }
-    
-    public ItemType(String name, String description, double price) {
-        this.name = name;
-        this.description = description;
-        this.price = price;
-    }
-    
     public Long getId() {
         return id;
     }
@@ -34,28 +24,20 @@ public class ItemType implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getDownloadUrl() {
+        return downloadUrl;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDownloadUrl(String downloadUrl) {
+        this.downloadUrl = downloadUrl;
     }
 
-    public String getDescription() {
-        return description;
+    public double getSizeMB() {
+        return sizeMB;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
+    public void setSizeMB(double sizeMB) {
+        this.sizeMB = sizeMB;
     }
 
     @Override
@@ -68,10 +50,10 @@ public class ItemType implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof ItemType)) {
+        if (!(object instanceof EBook)) {
             return false;
         }
-        ItemType other = (ItemType) object;
+        EBook other = (EBook) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -80,7 +62,7 @@ public class ItemType implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.ItemType[ id=" + id + " ]";
+        return "entity.EBook[ id=" + id + " ]";
     }
 
 }

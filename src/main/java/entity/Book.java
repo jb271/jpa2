@@ -1,36 +1,23 @@
 package entity;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 
 @Entity
-public class Customer implements Serializable {
+public class Book implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
-    
-    private String email;
+    private String isbn;
+    private String title;
+    private String author;
+    private double price;
 
-    @OneToMany(mappedBy = "customer")
-    private final List<Order> orders = new ArrayList();
-    
-    private Customer() {
-    }
-    
-    public Customer(String name, String email) {
-        this.name = name;
-        this.email = email;
-    }
-    
     public Long getId() {
         return id;
     }
@@ -39,24 +26,36 @@ public class Customer implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getIsbn() {
+        return isbn;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
     }
 
-    public String getEmail() {
-        return email;
+    public String getTitle() {
+        return title;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public List<Order> getOrders() {
-        return orders;
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
     }
 
     @Override
@@ -69,10 +68,10 @@ public class Customer implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Customer)) {
+        if (!(object instanceof Book)) {
             return false;
         }
-        Customer other = (Customer) object;
+        Book other = (Book) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -81,7 +80,7 @@ public class Customer implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.Customer[ id=" + id + " ]";
+        return "entity.Book[ id=" + id + " ]";
     }
 
 }
